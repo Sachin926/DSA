@@ -1,5 +1,5 @@
 import java.util.*;
-class test {
+class Sort012 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
