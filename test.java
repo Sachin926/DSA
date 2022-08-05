@@ -7,27 +7,35 @@ class test {
         for (int i = 0; i < n; i++) {
             a[i] = sc.nextInt();
         }
-        int pivot = sc.nextInt();
-        partition(a, pivot);
-        for (int itr = 0; itr < a.length; itr++) {
-            System.out.print(a[itr] + "  ");
+        int res[] = sortArray012(a, n);
+        for (int i = 0; i < n; i++) {
+            System.out.print(a[i] + " ");
         }
         System.out.println();
     }
-    static void partition(int a[], int pivot) {
+    static int[] sortArray012(int a[], int n) {
         int i = 0;
         int j = 0;
-        while (j < a.length) {
-            if (a[j] > 5) {
+        int k = n - 1;
+        while (k >= j) {
+            if (a[j] == 1) {
                 j++;
             }
-            else {
-                int temp = a[j];
-                a[j] = a[i];
-                a[i] = temp;
+            else if (a[j] == 0) {
+                swap(a, i, j);
                 i++;
                 j++;
             }
+            else {
+                swap(a, j, k);
+                k--;
+            }
         }
+        return a;
+    }
+    static void swap(int a[], int l, int m) {
+        int temp = a[l];
+        a[l] = a[m];
+        a[m] = temp;
     }
 }
